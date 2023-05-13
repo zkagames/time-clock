@@ -1,6 +1,6 @@
 # Time Clock App
 
-![demo](images/demo.png)
+![demo](public/images/demo.png)
 
 ### scripts
 
