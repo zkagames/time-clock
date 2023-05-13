@@ -1,7 +1,8 @@
 # Time Clock App
 
-### scripts
+![demo](images/demo.png)
 
+### scripts
 
 `yarn` - installs modules
 
