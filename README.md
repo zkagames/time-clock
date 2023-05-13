@@ -2,7 +2,7 @@
 
 ![demo](public/images/demo.png)
 
-### scripts
+## scripts
 
 `yarn` - installs modules
 
