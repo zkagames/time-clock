@@ -76,7 +76,6 @@ export const TimeCard =()=>{
             <FormRow>
                 <FormRow>User: <Users/></FormRow>
             </FormRow>
-           
 
             <FormRow>
                 In: 
@@ -88,7 +87,7 @@ export const TimeCard =()=>{
                 <InputSmall value={outTime} onChange = {e=>setOutTime(e.target.value)}/>
             </FormRow>   
             <br/>
-            <Button onClick={setCard} disabled={!inTime && !outTime}>Submit</Button>
+            <Button data-testid="set-card" onClick={setCard} disabled={!inTime && !outTime}>Submit</Button>
          
        </FormContainer>
 

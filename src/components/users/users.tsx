@@ -6,9 +6,9 @@ import { UsersContext } from "../../contexts/user-context";
 export const Users = ()=>{
     const users = API.getUsers();
     const {user, setUser } = useContext(UsersContext);
-    return <UsersSelect data-testid="users-select" onChange={e=>setUser(e.target.value)} defaultValue={user}>
-                {users.map((u)=>
-                    <option key={u}>{u}</option>
-                )}
-            </UsersSelect>  
+    return <UsersSelect onChange={e=>setUser(e.target.value)} defaultValue={user}>
+        {users.map((u)=>
+            <option key={u}>{u}</option>
+        )}
+    </UsersSelect>  
 }
