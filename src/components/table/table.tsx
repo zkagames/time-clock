@@ -23,7 +23,7 @@ export const Table = ({data, tableConfig}:{data: Array<TableRow>, tableConfig: T
     return  <>
             <TableHeader>
                 {(tableConfig.columns).map(column=>{
-                    return <TableHeaderCell key={column.id} width={column.width}
+                    return <TableHeaderCell data-testid="table-header" key={column.id} width={column.width}
                         onClick={()=>
                             {
                                 setSortBy(column.id);
@@ -41,7 +41,7 @@ export const Table = ({data, tableConfig}:{data: Array<TableRow>, tableConfig: T
 
             <TableBody>
                     {sortedData.map((row,i)=>{   
-                        return <TableRowContainer key={i} isOdd={i%2==0}>
+                        return <TableRowContainer data-testid="table-row" key={i} isOdd={i%2==0}>
                             {(tableConfig.columns).map(column=>{
                           
                             return <TableCell key={row.id+column.id} width={column.width}> 

@@ -46,7 +46,7 @@ export const MonthlyReport =()=>{
 
        {!!data?.cards.length ? 
         <>
-        <Total>Total hours {data.total}</Total>
+        <Total data-testid="total">Total hours {data.total}</Total>
         <Table tableConfig={tableConfig} data={data.cards}/>
         </>
         : `No activity for ${user} in this month`}

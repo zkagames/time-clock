@@ -2,8 +2,11 @@
 
 ### scripts
 
-`yarn`
 
-`yarn start`
+`yarn` installs modules
 
-`yarn yest`
+`yarn start` starts the app
+
+`yarn yest` unit tests
+
+`yarn test-e2e` e2e tests
