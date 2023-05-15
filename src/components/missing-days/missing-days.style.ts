@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { COLORS } from '../../style/style';
 
-const BOX_SIZE = 41;
+const BOX_SIZE = 38;
 const CAPTION_SIZE = 16;
 
 export const Header = styled.div`
@@ -21,7 +21,7 @@ export const DayAndText = styled.div`
     width: ${BOX_SIZE}px;
     padding:0px 4px;
     color: #666;
-    font-size:14px;
+    font-size:13px;
 `
 
 export const Day = styled.div<{isFull: boolean, size:number}>`

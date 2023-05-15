@@ -13,6 +13,6 @@ export const Total = styled.div`
 
 export const FormAndGraph = styled.div`
     display:flex;
-    align-items:center;
+    align-items:flex-start;
     gap:80px;
 `
