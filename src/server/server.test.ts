@@ -1,6 +1,6 @@
 import { DailyCard } from "../types";
-import { API, users } from "./server";
-
+import { API } from "./server";
+import { users } from "./data";
 
 let dailyCards:Record<string, DailyCard> = {
     '10/05/2023:carl':{

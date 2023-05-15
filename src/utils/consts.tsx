@@ -9,7 +9,7 @@ export const PAGES:Array<Page> = [{
     path: 'all',
     display: 'Montly Report',
     render: ()=> <MonthlyReport/>
-}]
+}];
 
 export const DATE_FORMAT = "DD/MM/YYYY"
 export const MONTH_FORMAT = "MM/YYYY"

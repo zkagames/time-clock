@@ -1,31 +1,7 @@
 import dayjs from "dayjs";
 import { DailyCard, MonthlyCardsRow } from "../types";
 import { API_DELIMITER, DATE_DELIMITER } from "../utils/consts";
-
-export const users:Array<string> = ['homer', 'marge', 'bart','lisa','maggie'];
-
-let dailyCards:Record<string, DailyCard> = {
-  '10/05/2023:bart':{
-    inTime: '10:00',
-    outTime: '14:00'
-  },
-  '11/05/2023:bart':{
-    inTime: '11:00',
-    outTime: '14:00'
-  },
-  '12/05/2023:bart':{
-    inTime: '10:00',
-    outTime: ''
-  },
-  '10/05/2023:homer':{
-    inTime: '10:00',
-    outTime: '19:30'
-  },
-  '11/05/2023:homer':{
-    inTime: '11:00',
-    outTime: ''
-  }
-};
+import { dailyCards, users } from "./data";
 
 export const API = {
   getUsers: ()=>{
@@ -48,11 +24,11 @@ export const API = {
 
     const cards = Object.keys(inputCards).reduce((acc, key)=>{
       const [cardDate, cardUser] = key.split(API_DELIMITER);
-      const [_, cardMonth, __] = cardDate.split(DATE_DELIMITER);
+      const [cardDaty, cardMonth, __] = cardDate.split(DATE_DELIMITER);
       
       if(Number(month) === Number(cardMonth) && user === cardUser){
         const {inTime, outTime} = inputCards[key];
-        acc.push({user, day:cardDate, inTime, outTime});
+        acc.push({user, day:cardDaty+DATE_DELIMITER+cardMonth, inTime, outTime});
       }
 
       return acc;

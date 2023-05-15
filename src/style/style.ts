@@ -2,6 +2,10 @@ import styled, { css } from 'styled-components';
 
 export const HEADER_COLOR = 'rgb(9, 113, 241)';
 export const HOVER_COLOR = 'rgb(35, 170, 255)';
+export const COLORS = {
+    full: '#2a2',
+    missing: '#d22'
+}
 
 export const MainPage = styled.div`
     padding:0px;
@@ -46,14 +50,14 @@ export const Button = styled.button<{disabled?: boolean}>`
     transition: all 0.2s ease-in-out;
     
     ${props => !props.disabled && css`
-    background: ${HEADER_COLOR};
-    color: white;
-    cursor:pointer;
-    outline:none;
-    border-radius:2px;
-    border: 2px outset ${HEADER_COLOR};
-    &:hover{
-        background: ${HOVER_COLOR};
-    }
+        background: ${HEADER_COLOR};
+        color: white;
+        cursor:pointer;
+        outline:none;
+        border-radius:2px;
+        border: 2px outset ${HEADER_COLOR};
+        &:hover{
+            background: ${HOVER_COLOR};
+        }
         `}
 `
