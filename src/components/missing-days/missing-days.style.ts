@@ -37,5 +37,4 @@ export const NotifyLine = styled.div<{size:number}>`
     height: 1px;
     width: 100%;
     border-top:1px dashed ${ COLORS.missing};
-    transition: bottom 0.2s ease-in-out;
 `
