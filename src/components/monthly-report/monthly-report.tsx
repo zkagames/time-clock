@@ -40,10 +40,8 @@ export const MonthlyReport =()=>{
                 </FormRow>
             </FormContainer>
 
-            {!!data?.cards.length && <FormContainer>
-                {!!data?.cards.length && <MissingDays data={data.cards}/>}
-            </FormContainer>}
-
+           {!!data?.cards.length && <MissingDays data={data.cards}/>}
+           
        </FormAndGraph>
 
        {!!data?.cards.length ? 

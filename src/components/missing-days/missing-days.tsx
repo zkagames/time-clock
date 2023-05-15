@@ -1,7 +1,9 @@
-import { useMemo, useState } from "react";
+import {  useMemo, useState } from "react";
 import { MonthlyCardsRow } from "../../types"
-import { Day, DayAndText, Days, Header, NotifyLine } from "./missing-days.style"
+import { AlertContainer, Day, DayAndText, Days, Header, MissingDaysContainer, NotifyLine } from "./missing-days.style"
 import { maxBy } from "lodash";
+import { Alert } from "@mui/material";
+import { FormContainer } from "../form/form.style";
 
 const isFullDay = (day:MonthlyCardsRow) => Boolean(day.inTime && day.outTime);
 
@@ -26,11 +28,17 @@ export const MissingDays = ({data}:{data: Array<MonthlyCardsRow>})=>{
     },[missingWithOrder]);
 
     const [notify, setNotify] = useState(notifyDays[1] ?? notifyDays[0]);
+    const [notifyChanged, setNotifyChanged] = useState(false);
 
-    return <div>
+
+    return <MissingDaysContainer>
+        <FormContainer>
         <Header data-testid="missing-days-header">
             notify on{' '}
-                <select data-testid="missing-days-select" disabled={notifyDays.length <=1 } value={notify} onChange={(e)=>setNotify(Number(e.target.value))}>
+                <select data-testid="missing-days-select" disabled={notifyDays.length <=1 } value={notify} onChange={(e)=>
+                    {setNotify(Number(e.target.value));
+                        setNotifyChanged(true);
+                    }}>
                     {
                     notifyDays.map(i=><option key={i} value={i}>{i}</option>
                     )}
@@ -49,6 +57,14 @@ export const MissingDays = ({data}:{data: Array<MonthlyCardsRow>})=>{
                 </DayAndText>   
             })}
         </Days>
-    </div>
+       
+        </FormContainer>
+
+        {notifyChanged && <AlertContainer>
+            <Alert severity="info">Notifications set at {notify} missing days in a row</Alert>
+            </AlertContainer>}
+
+        
+        </MissingDaysContainer>
    
 }
