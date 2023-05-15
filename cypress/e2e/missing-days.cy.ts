@@ -7,6 +7,6 @@ describe('Missing Days', () => {
         const INITIAL_NOTIFY_VALUE = 2;
         cy.visit(`${MAIN_URL}all`);
         cy.get('[data-testid="missing-days-header"]').contains('Missing days').should('exist');
-        cy.get('[data-testid="missing-days-select"]').find(':selected').contains(INITIAL_NOTIFY_VALUE)
+        cy.get('[data-testid="missing-days-select"]').find(':selected').contains(INITIAL_NOTIFY_VALUE).should('exist');
       }); 
   })
