@@ -23,14 +23,14 @@ export const MissingDays = ({data}:{data: Array<MonthlyCardsRow>})=>{
     const notifyDays = useMemo(()=>{
         const max = maxBy(missingWithOrder, 'size')?.size ?? 1;
         return Array.from(Array(max).keys()).map(i=>i+1);
-    },[missingWithOrder])
+    },[missingWithOrder]);
 
     const [notify, setNotify] = useState(notifyDays[1] ?? notifyDays[0]);
 
     return <div>
         <Header data-testid="missing-days-header">
             notify on{' '}
-                <select data-testid="missing-days-select" value={notify} onChange={(e)=>setNotify(Number(e.target.value))}>
+                <select data-testid="missing-days-select" disabled={notifyDays.length <=1 } value={notify} onChange={(e)=>setNotify(Number(e.target.value))}>
                     {
                     notifyDays.map(i=><option key={i} value={i}>{i}</option>
                     )}
@@ -39,7 +39,7 @@ export const MissingDays = ({data}:{data: Array<MonthlyCardsRow>})=>{
             </Header>
            
         <Days>
-            <NotifyLine size={notify}/>
+            {notifyDays.length > 1 && <NotifyLine size={notify}/>}
             {missingWithOrder.map(dayCard=>{
             const isFull =isFullDay(dayCard);
             const {day, size} = dayCard;
